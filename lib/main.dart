@@ -57,7 +57,9 @@ class _MyHomePageState extends State<MyHomePage> {
           Container(
             width: double.infinity,
             child: Card(
-              child: Text('Chart!'),
+              child: Text(
+                'Chart!',
+              ),
               color: Colors.blue,
               elevation: 5,
             ),
@@ -68,16 +70,44 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Row(
                   children: [
                     Container(
-                      child: Text(tx.amount.toString()),
-                    ),
+                        child: Text(
+                          tx.amount.toString(),
+                          style: TextStyle(
+                            color: Colors.purple,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                        margin: EdgeInsets.all(20),
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                                color: Colors.purple,
+                                width: 3,
+                                style: BorderStyle.solid))),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(tx.title),
-                        Text(tx.date.toString()),
+                        Text(
+                          tx.title,
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          tx.date.toString(),
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 14,
+                          ),
+                        ),
                       ],
                     )
                   ],
                 ),
+                margin: EdgeInsets.symmetric(vertical: 7, horizontal: 10),
+                elevation: 5,
               );
             }).toList(),
           )
