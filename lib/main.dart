@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('Expense App'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        // mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
@@ -63,6 +63,29 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               color: Colors.blue,
               elevation: 5,
+            ),
+          ),
+          Card(
+            elevation: 5,
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Title'),
+                  ),
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Amount'),
+                  ),
+                  FlatButton(
+                    onPressed: () {},
+                    child: Text("Add Transaction"),
+                    hoverColor: Colors.grey,
+                    textColor: Colors.purple,
+                  )
+                ],
+              ),
             ),
           ),
           Column(
