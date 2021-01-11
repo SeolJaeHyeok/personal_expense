@@ -70,21 +70,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Row(
                   children: [
                     Container(
-                        child: Text(
-                          tx.amount.toString(),
-                          style: TextStyle(
-                            color: Colors.purple,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
+                      child: Text(
+                        '\$${tx.amount}',
+                        style: TextStyle(
+                          color: Colors.purple,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
                         ),
-                        margin: EdgeInsets.all(20),
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                                color: Colors.purple,
-                                width: 3,
-                                style: BorderStyle.solid))),
+                      ),
+                      margin: EdgeInsets.all(20),
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                              color: Colors.purple,
+                              width: 3,
+                              style: BorderStyle.solid)),
+                    ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
