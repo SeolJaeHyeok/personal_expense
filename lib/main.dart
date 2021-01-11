@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_expense_app/transaction.dart';
-import 'package:intl/intl.dart';
+import 'package:flutter_expense_app/models/transaction.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -30,20 +30,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Transaction> transaction = [
-    Transaction(
-      id: 't1',
-      title: 'New Shoes',
-      amount: 69.99,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Weekly Groceries',
-      amount: 16.53,
-      date: DateTime.now(),
-    ),
-  ];
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -65,77 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
               elevation: 5,
             ),
           ),
-          Card(
-            elevation: 5,
-            child: Container(
-              padding: EdgeInsets.all(10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  TextField(
-                    decoration: InputDecoration(labelText: 'Title'),
-                  ),
-                  TextField(
-                    decoration: InputDecoration(labelText: 'Amount'),
-                  ),
-                  FlatButton(
-                    onPressed: () {},
-                    child: Text("Add Transaction"),
-                    hoverColor: Colors.grey,
-                    textColor: Colors.purple,
-                  )
-                ],
-              ),
-            ),
-          ),
-          Column(
-            children: transaction.map((tx) {
-              return Card(
-                child: Row(
-                  children: [
-                    Container(
-                      child: Text(
-                        '\$${tx.amount}',
-                        style: TextStyle(
-                          color: Colors.purple,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
-                      ),
-                      margin: EdgeInsets.all(20),
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                              color: Colors.purple,
-                              width: 3,
-                              style: BorderStyle.solid)),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          tx.title,
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                          DateFormat().add_yMMMd().format(tx.date),
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-                margin: EdgeInsets.symmetric(vertical: 7, horizontal: 10),
-                elevation: 5,
-              );
-            }).toList(),
-          )
+
         ],
       ),
     );
